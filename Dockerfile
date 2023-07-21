@@ -26,7 +26,7 @@ ENV DOJO_ADMIN_EMAIL=$DOJO_ADMIN_EMAIL
 ENV C_FORCE_ROOT=$C_FORCE_ROOT
 
 # Update and install basic requirements;
-RUN pip install --upgrade pip
+RUN python -m pip install --upgrade pip
 
 RUN apt-get update && apt-get install -y \
     python \
