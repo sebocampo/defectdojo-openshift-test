@@ -16,19 +16,19 @@ parameters:
   displayName: "Project namespace"
   description: "OC namespace to deploy into"
   required: true
-  value: ""
+  value: "sebocampo-dev"
 
 - name: DOJO_FQDN
   displayName: "DefectDojo FQDN"
   description: "Externally accessible DefectDojo's hostname"
   required: true
-  value: ""
+  value: "https://django-test-defect-dojo-sebocampo-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com"
 
 - name: POSTGRES_HOST
   displayName: "Hostname of external postgres DB"
   description: "Hostname of external postgres DB"
   required: true
-  value: ""
+  value: "postgresql://sebastian:sebastianpassword@postgresql.sebocampo-dev.svc:5432/dd-postgres-name"
 
 - name: POSTGRES_PORT
   displayName: "Port of external postgres db"
@@ -40,31 +40,31 @@ parameters:
   displayName: "Name for the default database"
   description: "Name for the default database"
   required: true
-  value: "dojo"
+  value: "dd-postgres-name"
 
 - name: POSTGRES_USER
   displayName: "Postgres superuser name"
   description: "Postgres user with superuser power"
   required: true
-  value: ""
+  value: "sebastian"
 
 - name: POSTGRES_PASSWORD
   displayName: "Postgres superuser password"
   description: "Postgres superuser password"
   required: true
-  value: ""
+  value: "sebastianpassword"
 
 - name: DEFECTDOJO_ADMIN_PASSWORD
   displayName: "Defect Dojo Superuser password"
   description: "Defect Dojo Superuser password"
   required: true
-  value: ""
+  value: "adminpass"
 
 - name: DEFECTDOJO_ADMIN_USER
   displayName: D"efect Dojo Superuser"
   description: "Defect Dojo Superuser"
   required: true
-  value: ""
+  value: "admin"
 
 - name: FLUSH_DB
   displayName: "Controls database flushing during deployment"
@@ -121,9 +121,9 @@ objects:
       app: defect-dojo
     ports:
     - name: defect-dojo
-      port: 8000
+      port: 8080
       protocol: TCP
-      targetPort: 8000
+      targetPort: 8080
 
 - kind: Route
   apiVersion: v1

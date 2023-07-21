@@ -1,5 +1,4 @@
 FROM ubuntu:16.04
-MAINTAINER Igor Bakalo <bigorigor.ua@gmail.com>
 
 # Setup application environment variables
 
@@ -28,8 +27,6 @@ ENV C_FORCE_ROOT=$C_FORCE_ROOT
 
 # Update and install basic requirements;
 RUN apt-get update && apt-get install -y \
-    postgresql \
-    postgresql-contrib \
     python \
     python-pip \
     apt-transport-https \
@@ -47,7 +44,7 @@ RUN apt-get update && apt-get install -y \
 
 # Upload The DefectDojo application
 WORKDIR /opt
-RUN git clone -b dev https://github.com/bakalor/django-DefectDojo.git
+RUN git clone -b dev https://github.com/DefectDojo/django-DefectDojo.git
 
 # Install application dependancies
 WORKDIR /opt/django-DefectDojo
