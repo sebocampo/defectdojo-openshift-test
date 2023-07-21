@@ -51,7 +51,6 @@ RUN git clone -b dev https://github.com/bakalor/django-DefectDojo.git
 WORKDIR /opt/django-DefectDojo
 
 # Install python packages
-RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
