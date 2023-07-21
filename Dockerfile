@@ -52,8 +52,6 @@ WORKDIR /opt/django-DefectDojo
 
 # Install python packages
 
-RUN pip install -r requirements.txt
-
 RUN /bin/bash -c "cd /opt/django-DefectDojo && source entrypoint_scripts/common/dojo-shared-resources.sh && install_os_dependencies"
 
 RUN chmod 777 -R /opt/django-DefectDojo
