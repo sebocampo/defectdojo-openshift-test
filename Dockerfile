@@ -26,7 +26,6 @@ ENV DOJO_ADMIN_EMAIL=$DOJO_ADMIN_EMAIL
 ENV C_FORCE_ROOT=$C_FORCE_ROOT
 
 # Update and install basic requirements;
-RUN python -m pip install --upgrade pip
 
 RUN apt-get update && apt-get install -y \
     python \
@@ -52,6 +51,8 @@ RUN git clone -b dev https://github.com/bakalor/django-DefectDojo.git
 WORKDIR /opt/django-DefectDojo
 
 # Install python packages
+RUN pip install --upgrade pip
+
 RUN pip install -r requirements.txt
 
 RUN /bin/bash -c "cd /opt/django-DefectDojo && source entrypoint_scripts/common/dojo-shared-resources.sh && install_os_dependencies"
