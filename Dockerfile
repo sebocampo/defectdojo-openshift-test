@@ -26,6 +26,8 @@ ENV DOJO_ADMIN_EMAIL=$DOJO_ADMIN_EMAIL
 ENV C_FORCE_ROOT=$C_FORCE_ROOT
 
 # Update and install basic requirements;
+RUN pip install --upgrade pip
+
 RUN apt-get update && apt-get install -y \
     python \
     python-pip \
@@ -44,7 +46,7 @@ RUN apt-get update && apt-get install -y \
 
 # Upload The DefectDojo application
 WORKDIR /opt
-RUN git clone -b dev https://github.com/DefectDojo/django-DefectDojo.git
+RUN git clone -b dev https://github.com/bakalor/django-DefectDojo.git
 
 # Install application dependancies
 WORKDIR /opt/django-DefectDojo
